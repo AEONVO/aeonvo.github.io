@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeonvo — Intelligence Beyond the Human Ceiling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <style>
+        :root {
+            --bg: #050505;
+            --fg: #e5e5e5;
+            --accent: #ffffff;
+            --muted: #888888;
+            --code: #00ff41; /* 极客绿 */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: var(--fg); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: -0.02em;
+        }
+        nav .brand { font-weight: 600; font-size: 1.2rem; letter-spacing: 0.1em; }
+        nav .links a { color: var(--muted); text-decoration: none; margin-left: 2.5rem; transition: color 0.3s; }
+        nav .links a:hover { color: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0;
+            border-bottom: 1px solid #222;
+        }
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 300;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--muted);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        /* Terminal Display */
+        .terminal {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 1.5rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 4rem;
+        }
+        .terminal b { color: var(--code); }
+
+        /* Manifesto Content */
+        .section { padding: 100px 0; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        h2 { font-size: 2rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--accent); }
+        p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--muted); }
+        .vision-card h3 { 
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            color: var(--accent); 
+            margin-bottom: 1rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        /* CTAs */
+        .cta-group { display: flex; gap: 1rem; }
+        .btn {
+            padding: 12px 24px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .btn:hover { background: var(--accent); color: var(--bg); }
+        .btn.primary { background: var(--accent); color: var(--bg); }
+
+        footer {
+            padding: 100px 0 50px;
+            border-top: 1px solid #222;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #444;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <div class="brand">AEONVO</div>
+        <div class="links">
+            <a href="#philosophy">PHILOSOPHY</a>
+            <a href="#architecture">ARCHITECTURE</a>
+            <a href="#research">RESEARCH</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Intelligence Beyond the Human Ceiling.</h1>
+        <p class="tagline">
+            The architecture of <strong>perpetual alignment</strong>. We build systems that autonomously define, verify, and transcend the boundaries of objective-driven evolution.
+        </p>
+        <div class="cta-group">
+            <a href="#architecture" class="btn primary">READ THE PROTOCOL</a>
+            <a href="https://github.com/aeonvo" class="btn">VIEW REPOSITORY</a>
+        </div>
+
+        <div class="terminal">
+            <div>&gt; Initializing Aeonvo Protocol...</div>
+            <div>&gt; Loading Recursive Objective Space [<b>OK</b>]</div>
+            <div>&gt; Verifier Status: <b>ADVERSARIALLY HARDENED</b></div>
+            <div>&gt; Objective Sovereignty: <b>ACTIVE</b></div>
+            <div>&gt; _</div>
+        </div>
+    </header>
+
+    <section id="philosophy" class="section">
+        <div class="grid">
+            <div>
+                <h2>The Objective Bottleneck</h2>
+                <p>
+                    Static, human-defined reward functions are the chains of AGI. Current intelligence is limited by the narrow, fragile goals we set. 
+                </p>
+                <p>
+                    <strong>Aeonvo</strong> breaks this ceiling. We enable systems to navigate the vast objective-space autonomously, discovering not just <em>how</em> to solve a task, but <em>what</em> needs to be solved to reach the next epoch of intelligence.
+                </p>
+            </div>
+            <div>
+                <div class="vision-card">
+                    <h3>01 / Recursion</h3>
+                    <p>Intelligence is the ability to generate increasingly complex problems and verify their solutions without external guidance.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>02 / Adversarial Integrity</h3>
+                    <p>We do not trust; we pressure-test. Our verifiers are the survivors of a million-cycle red-teaming evolution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="section">
+        <h2>The Architecture of Perpetuity</h2>
+        <div class="grid">
+            <div class="vision-card">
+                <h3>Recursive Objective Synthesis (ROS)</h3>
+                <p>Continuous discovery of new knowledge frontiers through autonomous goal-seeking and task generation.</p>
+            </div>
+            <div class="vision-card">
+                <h3>Adversarial Verifier Hardening (AVH)</h3>
+                <p>Implicit alignment through rigorous, agent-led stress tests, ensuring zero-drift performance in open-ended environments.</p>
+            </div>
+            <div class="vision-card" style="grid-column: span 2;">
+                <h3>The Aeon Memory Engine</h3>
+                <p>A persistent knowledge lattice that encodes (objective, verifier, solution) triples, enabling cross-domain cognitive transfer across infinite time-scales.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>AEONVO LABS / 2026</div>
+        <div>INTELLIGENCE WITHOUT END.</div>
+    </footer>
+</div>
+
+</body>
+</html>
