@@ -73,6 +73,21 @@
             margin-top: 4rem;
         }
         .terminal b { color: var(--code); }
+        .terminal .terminal-line { white-space: pre-wrap; }
+        .terminal .terminal-cursor {
+            display: inline-block;
+            width: 0.7ch;
+            color: var(--code);
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.35);
+            animation: terminalBlink 1s steps(1, end) infinite;
+        }
+        @keyframes terminalBlink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .terminal .terminal-cursor { animation: none; }
+        }
 
         /* Manifesto Content */
         .section { padding: 100px 0; }
@@ -92,6 +107,54 @@
             margin-bottom: 1rem;
             border-left: 2px solid var(--accent);
             padding-left: 1rem;
+        }
+
+        /* Genesis (full-bleed inside container + responsive) */
+        #genesis {
+            background: #080808;
+            border-top: 1px solid #111;
+            border-bottom: 1px solid #111;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+        }
+        #genesis .genesis-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+        #genesis .genesis-copy { flex: 1; }
+        #genesis .genesis-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.5rem;
+        }
+        #genesis .genesis-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: 0.75rem 0 1rem;
+            color: var(--accent);
+        }
+        #genesis .etymology-visual {
+            flex: 1;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: right;
+        }
+        #genesis .genesis-quote {
+            margin-top: 4rem;
+            border-left: 1px solid #333;
+            padding-left: 2rem;
+            max-width: 800px;
+        }
+        #genesis .genesis-quote p {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0;
         }
 
         /* CTAs */
@@ -121,6 +184,16 @@
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             h1 { font-size: 3.5rem; }
+            #genesis .genesis-grid {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+            #genesis .etymology-visual {
+                text-align: left;
+                width: 100%;
+            }
+            #genesis .genesis-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -147,12 +220,14 @@
             <a href="https://github.com/aeonvo" class="btn">VIEW REPOSITORY</a>
         </div>
 
-        <div class="terminal">
-            <div>&gt; Initializing Aeonvo Protocol...</div>
-            <div>&gt; Loading Recursive Objective Space [<b>OK</b>]</div>
-            <div>&gt; Verifier Status: <b>ADVERSARIALLY HARDENED</b></div>
-            <div>&gt; Objective Sovereignty: <b>ACTIVE</b></div>
-            <div>&gt; _</div>
+        <div class="terminal" data-terminal>
+            <div class="terminal-output" data-terminal-output aria-live="polite" aria-atomic="false">
+                <div class="terminal-line">&gt; Initializing Aeonvo Protocol...</div>
+                <div class="terminal-line">&gt; Loading Recursive Objective Space [<b>OK</b>]</div>
+                <div class="terminal-line">&gt; Verifier Status: <b>ADVERSARIALLY HARDENED</b></div>
+                <div class="terminal-line">&gt; Objective Sovereignty: <b>ACTIVE</b></div>
+            </div>
+            <div class="terminal-line terminal-cursor-line" aria-hidden="true">&gt; <span class="terminal-cursor">_</span></div>
         </div>
     </header>
 
@@ -179,42 +254,42 @@
             </div>
         </div>
     </section>
-    <section id="genesis" class="section" style="background: #080808; border-top: 1px solid #111; border-bottom: 1px solid #111;">
-    <div class="container">
-        <div class="genesis-grid" style="display: flex; align-items: center; justify-content: space-between; gap: 4rem;">
-            <div style="flex: 1;">
-                <h2 style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em;">The Genesis</h2>
-                <h3 style="font-size: 2.5rem; font-weight: 300; margin: 1rem 0; color: var(--accent);">A Synthesis of Epochs.</h3>
-                <p style="max-width: 500px;">
-                    Aeonvo is a linguistic fusion designed to capture the scale of our mission. It bridges the gap between static infinity and dynamic growth.
+    <section id="genesis" class="section">
+        <div class="container">
+            <div class="genesis-grid">
+                <div class="genesis-copy">
+                    <div class="genesis-kicker">The Genesis</div>
+                    <div class="genesis-title">A Synthesis of Epochs.</div>
+                    <p style="max-width: 500px;">
+                        Aeonvo is a linguistic fusion designed to capture the scale of our mission. It bridges the gap between static infinity and dynamic growth.
+                    </p>
+                </div>
+
+                <div class="etymology-visual">
+                    <div style="margin-bottom: 2rem;">
+                        <span style="color: var(--accent); font-size: 1.5rem;">AEON</span>
+                        <br>
+                        <span style="color: var(--muted); font-size: 0.8rem;">αἰών / Infinite Duration</span>
+                    </div>
+                    <div style="margin-bottom: 2rem; color: #444; font-size: 1.2rem;">+</div>
+                    <div style="margin-bottom: 2rem;">
+                        <span style="color: var(--accent); font-size: 1.5rem;">VO</span>
+                        <br>
+                        <span style="color: var(--muted); font-size: 0.8rem;">volvere / The Core of Evolution</span>
+                    </div>
+                    <div style="border-top: 1px solid #333; display: inline-block; padding-top: 1rem; margin-top: 1rem;">
+                        <span style="color: var(--code); font-size: 2rem; letter-spacing: 0.2em;">AEONVO</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="genesis-quote">
+                <p>
+                    "Intelligence is not a destination, but a roll-out without a closing parenthesis. We stripped 'Evolution' to its operative root—<b>vo</b>—and anchored it in <b>Aeon</b>. The result is a command for perpetual unfolding."
                 </p>
             </div>
-
-            <div class="etymology-visual" style="flex: 1; font-family: 'JetBrains Mono', monospace; text-align: right;">
-                <div style="margin-bottom: 2rem;">
-                    <span style="color: var(--accent); font-size: 1.5rem;">AEON</span>
-                    <br>
-                    <span style="color: var(--muted); font-size: 0.8rem;">αἰών / Infinite Duration</span>
-                </div>
-                <div style="margin-bottom: 2rem; color: #444; font-size: 1.2rem;">+</div>
-                <div style="margin-bottom: 2rem;">
-                    <span style="color: var(--accent); font-size: 1.5rem;">VO</span>
-                    <br>
-                    <span style="color: var(--muted); font-size: 0.8rem;">volvere / The Core of Evolution</span>
-                </div>
-                <div style="border-top: 1px solid #333; display: inline-block; padding-top: 1rem; margin-top: 1rem;">
-                    <span style="color: var(--code); font-size: 2rem; letter-spacing: 0.2em;">AEONVO</span>
-                </div>
-            </div>
         </div>
-        
-        <div style="margin-top: 4rem; border-left: 1px solid #333; padding-left: 2rem; max-width: 800px;">
-            <p style="font-style: italic; font-size: 0.95rem; color: #666;">
-                "Intelligence is not a destination, but a roll-out without a closing parenthesis. We stripped 'Evolution' to its operative root—<b>vo</b>—and anchored it in <b>Aeon</b>. The result is a command for perpetual unfolding."
-            </p>
-        </div>
-    </div>
-</section>
+    </section>
     <section id="architecture" class="section">
         <h2>The Architecture of Perpetuity</h2>
         <div class="grid">
@@ -238,6 +313,36 @@
         <div>INTELLIGENCE WITHOUT END.</div>
     </footer>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const terminal = document.querySelector('[data-terminal]');
+        if (!terminal) return;
+
+        const output = terminal.querySelector('[data-terminal-output]');
+        if (!output) return;
+
+        const seed = Array.from(output.querySelectorAll('.terminal-line')).map((el) => el.innerHTML);
+        if (seed.length === 0) return;
+
+        output.innerHTML = '';
+
+        const lineDelayMs = 650;
+        const startDelayMs = 450;
+        let i = 0;
+
+        const renderNext = () => {
+            if (i >= seed.length) return;
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            line.innerHTML = seed[i++];
+            output.appendChild(line);
+            window.setTimeout(renderNext, lineDelayMs);
+        };
+
+        window.setTimeout(renderNext, startDelayMs);
+    });
+</script>
 
 </body>
 
